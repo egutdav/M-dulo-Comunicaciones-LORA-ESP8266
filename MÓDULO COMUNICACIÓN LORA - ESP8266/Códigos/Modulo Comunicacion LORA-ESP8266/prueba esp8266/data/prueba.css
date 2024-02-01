@@ -1,12 +1,13 @@
 html {
     font-family: Arial;
     text-align: center;
-    }
-    body {
-    max-width: 400px;
-    margin:0px auto;
+}
+
+body {
+    margin: 0;
     background-color: #464A54;
-    }
+    box-sizing: border-box;
+}
 
 #Cabecera {
     margin: 0;
@@ -14,6 +15,28 @@ html {
     padding: 4rem;
 }   
 
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+
+.flex-box {
+    width: calc(33.33% - 20px);
+    height: 100px;
+    margin: 10px;
+    margin-bottom: 20px; 
+    background: linear-gradient(grey);
+    position: relative; 
+} 
+
+.lamp-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
 
 .lamp {
     position: relative;
@@ -33,12 +56,11 @@ html {
         50% 0,
         0.14rem 8rem,
         0 8.8rem;
-
 }
 
 .lamp:before,
 .lamp:after {
-    content: ""; /*el string vacío del contenido de lampara*/
+    content: "";
     position: absolute;
 }
 
@@ -51,15 +73,15 @@ html {
     background: #ffffff08;
     box-shadow: inset 2px -2px 10px #ffffff12;
     transition: all 2s;
+   
 }
 
-/*la linea y circulo dentro de la lampara*/
 .light,
 .light:before {
     position: absolute;
 }
 
-.light { /*linea*/
+.light {
     top: 10.05rem;
     left: 0.3rem;
     width: 0;
@@ -67,7 +89,7 @@ html {
     border-right: 0.2rem solid #ffffff0d;
 }
 
-.light:before {  /*circulo*/
+.light:before {
     content: "";
     top: 1.5rem;
     left: -0.55rem;
@@ -76,6 +98,7 @@ html {
     border-radius: 50%;
     border: 0.2rem solid #ffffff0d;
     box-shadow: 0px 0px 50px #ffffff00;
+    
 }
 
 .switch { 
@@ -83,19 +106,24 @@ html {
     width: 2rem;
     height: 2rem;
     cursor: pointer;
-    top: 21rem;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
     z-index: 2;
-    appearance: none;
-}
+    appearance: auto;
+} 
 
-input:checked~.lamp:before { /*checkbox marcado*/
+input:checked~.lamp:before {
     background: #ffffff;
     box-shadow: 
-    0px 2px 10px #ffffffcc,
-    0px 5px 50px #ffffffcc,
-    0px 8px 80px #ffffff99,
-    0px 8px 120px #ffffff99;
+        0px 2px 10px #ffffffcc,
+        0px 5px 50px #ffffffcc,
+        0px 8px 80px #ffffff99,
+        0px 8px 120px #ffffff99;
+}
 
+input:checked~.lamp .switch {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
